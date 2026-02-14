@@ -80,7 +80,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 mt-12 md:mt-16 pt-8 pb-4 flex flex-col md:flex-row justify-between items-center text-[15px] text-slate-500 text-center md:text-left gap-4 md:gap-0">
-            <p>© Since 1996 - Precision Point Cleaning. Designed by <a href="#" className="underline hover:text-brand-red">Weskley Gomes</a></p>
+            <p>© Since 1996 - Precision Point Cleaning. Designed by <a href="https://wa.me/5561981535040" target="_blank" rel="noopener noreferrer" className="underline hover:text-brand-red">Weskley Gomes</a></p>
             
             <div className="flex space-x-6">
                 <a href="#" className="text-slate-400 hover:text-brand-red transition-colors"><Facebook size={18} /></a>
