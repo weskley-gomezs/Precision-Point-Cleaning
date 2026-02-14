@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Users, Shield, Clock } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 
 export const AboutUsPage: React.FC = () => {
   return (
@@ -29,8 +29,8 @@ export const AboutUsPage: React.FC = () => {
                 <div className="lg:w-1/2 relative">
                     <div className="absolute top-4 left-4 border-2 border-brand-red w-full h-full z-0 hidden md:block"></div>
                     <img 
-                        src="https://i.imgur.com/vgIsIq1.jpeg" 
-                        alt="Our Team" 
+                        src="https://i.imgur.com/7B5ncU3.png" 
+                        alt="Business Owner" 
                         className="w-full h-auto object-cover rounded shadow-lg relative z-10"
                     />
                 </div>
@@ -76,50 +76,41 @@ export const AboutUsPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Values Section */}
+      {/* Awards Section */}
       <div className="bg-brand-light-gray py-16 md:py-24">
         <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
-                <h4 className="text-brand-red font-bold uppercase tracking-widest text-sm mb-2">Why Choose Us</h4>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-700 mb-4">Our Core Values</h2>
+                <h4 className="text-brand-red font-bold uppercase tracking-widest text-sm mb-2">Recognition</h4>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-700 mb-4">Award Winning Service</h2>
                 <p className="text-slate-500 leading-relaxed">
-                    We believe that trust and reliability are the foundation of any service business. Here is what sets us apart from the competition.
+                    We are honored to have been recognized for our commitment to quality and customer service.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* Value 1 */}
-                <div className="bg-white p-8 rounded shadow-sm hover:shadow-md transition-shadow text-center group">
-                    <div className="w-16 h-16 mx-auto bg-brand-light-gray rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-red transition-colors duration-300">
-                        <Users className="w-8 h-8 text-brand-red group-hover:text-white transition-colors" />
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-700 mb-3">Experienced Team</h3>
-                    <p className="text-slate-500 leading-relaxed">
-                        Every member of our team is vetted, background-checked, and rigorously trained to ensure the highest standards of safety and quality.
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                 {/* Award 1 */}
+                 <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-8">
+                    <img 
+                        src="https://i.imgur.com/QbLITYO.png" 
+                        alt="Award Winner" 
+                        className="h-48 md:h-60 w-auto object-contain hover:scale-105 transition-transform duration-300 flex-shrink-0"
+                    />
+                    <p className="text-slate-600 font-medium leading-relaxed text-center sm:text-left">
+                        2022 & 2024 Award for excellence in environmental services, earned during prior senior leadership service with a national healthcare services organization.
                     </p>
-                </div>
+                 </div>
 
-                {/* Value 2 */}
-                <div className="bg-white p-8 rounded shadow-sm hover:shadow-md transition-shadow text-center group">
-                    <div className="w-16 h-16 mx-auto bg-brand-light-gray rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-red transition-colors duration-300">
-                        <Shield className="w-8 h-8 text-brand-red group-hover:text-white transition-colors" />
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-700 mb-3">Fully Insured</h3>
-                    <p className="text-slate-500 leading-relaxed">
-                        We are fully bonded and insured for your peace of mind. We treat your property with the utmost respect and care it deserves.
+                 {/* Award 2 */}
+                 <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-8">
+                    <img 
+                        src="https://i.imgur.com/a7MiZjY.png" 
+                        alt="Award Winner" 
+                        className="h-48 md:h-60 w-auto object-contain hover:scale-105 transition-transform duration-300 flex-shrink-0"
+                    />
+                    <p className="text-slate-600 font-medium leading-relaxed text-center sm:text-left">
+                        Our leadership has achieved deficiency-free regulatory surveys in acute care environments, demonstrating the highest standards of cleanliness, infection prevention, and compliance.
                     </p>
-                </div>
-
-                 {/* Value 3 */}
-                <div className="bg-white p-8 rounded shadow-sm hover:shadow-md transition-shadow text-center group">
-                    <div className="w-16 h-16 mx-auto bg-brand-light-gray rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-red transition-colors duration-300">
-                        <Clock className="w-8 h-8 text-brand-red group-hover:text-white transition-colors" />
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-700 mb-3">Reliable Service</h3>
-                    <p className="text-slate-500 leading-relaxed">
-                        We show up on time, every time. With our 24/7 availability, you can count on us to be there whenever you need us most.
-                    </p>
-                </div>
+                 </div>
             </div>
         </div>
       </div>
