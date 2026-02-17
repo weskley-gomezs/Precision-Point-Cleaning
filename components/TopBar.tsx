@@ -22,7 +22,14 @@ export const TopBar: React.FC = () => {
 
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-4">
-            <a href="#" className="hover:text-brand-red transition-colors"><Facebook size={14} /></a>
+            <a 
+              href="https://www.facebook.com/profile.php?id=61588417671600&locale=pt_BR" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-brand-red transition-colors"
+            >
+              <Facebook size={14} />
+            </a>
             <a href="#" className="hover:text-brand-red transition-colors"><Twitter size={14} /></a>
           </div>
           <a 

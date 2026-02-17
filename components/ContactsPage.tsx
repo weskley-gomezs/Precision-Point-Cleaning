@@ -70,7 +70,12 @@ export const ContactsPage: React.FC = () => {
                         <div className="pt-4">
                             <h3 className="font-bold text-slate-700 text-lg mb-3">Look for us on</h3>
                             <div className="flex gap-3">
-                                <a href="#" className="bg-gray-400 hover:bg-brand-red transition-colors text-white w-10 h-10 rounded-full flex items-center justify-center">
+                                <a 
+                                  href="https://www.facebook.com/profile.php?id=61588417671600&locale=pt_BR" 
+                                  target="_blank" 
+                                  rel="noopener noreferrer" 
+                                  className="bg-gray-400 hover:bg-brand-red transition-colors text-white w-10 h-10 rounded-full flex items-center justify-center"
+                                >
                                     <Facebook size={20} fill="white" className="border-none" />
                                 </a>
                                 <a href="#" className="bg-gray-400 hover:bg-brand-red transition-colors text-white w-10 h-10 rounded-full flex items-center justify-center">

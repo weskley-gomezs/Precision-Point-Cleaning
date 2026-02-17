@@ -83,9 +83,23 @@ export const Footer: React.FC = () => {
             <p>© Since 1996 - Precision Point Cleaning. Designed by <a href="https://wa.me/5561981535040" target="_blank" rel="noopener noreferrer" className="underline hover:text-brand-red">Weskley Gomes</a></p>
             
             <div className="flex space-x-6">
-                <a href="#" className="text-slate-400 hover:text-brand-red transition-colors"><Facebook size={18} /></a>
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61588417671600&locale=pt_BR" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-slate-400 hover:text-brand-red transition-colors"
+                >
+                  <Facebook size={18} />
+                </a>
                 <a href="#" className="text-slate-400 hover:text-brand-red transition-colors"><Twitter size={18} /></a>
-                <a href="#" className="text-slate-400 hover:text-brand-red transition-colors"><Instagram size={18} /></a>
+                <a 
+                  href="https://www.instagram.com/precision.point.cleaning/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-slate-400 hover:text-brand-red transition-colors"
+                >
+                  <Instagram size={18} />
+                </a>
             </div>
         </div>
       </div>
