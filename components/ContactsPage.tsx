@@ -1,7 +1,27 @@
-import React from 'react';
-import { MapPin, Phone, Clock, Facebook, Twitter, Check } from 'lucide-react';
+import React, { useState } from 'react';
+import { MapPin, Phone, Clock, Facebook, Instagram, Check } from 'lucide-react';
 
 export const ContactsPage: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const text = `*New Contact Form Submission*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Message:* ${formData.message}`;
+    
+    window.open(`https://wa.me/16173720093?text=${text}`, '_blank');
+  };
+
   return (
     <div className="bg-white animate-fade-in">
         <div className="container mx-auto px-4 py-12 md:py-16">
@@ -50,8 +70,7 @@ export const ContactsPage: React.FC = () => {
                             </div>
                             <div>
                                 <h3 className="font-bold text-slate-700 text-lg mb-1">Phone 24/7</h3>
-                                <p className="text-slate-500 text-[15px]">Serving New England (617) 372-0093</p>
-                                <p className="text-slate-500 text-[15px]">Emergency Services: 888-76-FLOOD</p>
+                                <a href="tel:6173720093" className="text-slate-500 text-[15px] hover:text-brand-red transition-colors">Serving New England (617) 372-0093</a>
                             </div>
                         </div>
 
@@ -78,8 +97,13 @@ export const ContactsPage: React.FC = () => {
                                 >
                                     <Facebook size={20} fill="white" className="border-none" />
                                 </a>
-                                <a href="#" className="bg-gray-400 hover:bg-brand-red transition-colors text-white w-10 h-10 rounded-full flex items-center justify-center">
-                                    <Twitter size={20} fill="white" className="border-none" />
+                                <a 
+                                  href="https://www.instagram.com/precision.point.cleaning/" 
+                                  target="_blank" 
+                                  rel="noopener noreferrer" 
+                                  className="bg-gray-400 hover:bg-brand-red transition-colors text-white w-10 h-10 rounded-full flex items-center justify-center"
+                                >
+                                    <Instagram size={20} fill="white" className="border-none" />
                                 </a>
                             </div>
                         </div>
@@ -90,47 +114,44 @@ export const ContactsPage: React.FC = () => {
                 <div className="lg:w-2/3">
                     <h2 className="text-[1.75rem] font-bold text-slate-700 mb-8">Get in Touch</h2>
                     
-                    <form className="space-y-4">
+                    <form className="space-y-4" onSubmit={handleSubmit}>
                         <input 
                             type="text" 
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
                             placeholder="Your name*" 
+                            required
                             className="w-full border border-gray-300 rounded px-4 py-3 text-sm text-slate-600 focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400 bg-white" 
                         />
                         <input 
-                            type="text" 
+                            type="email" 
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
                             placeholder="Email*" 
+                            required
                             className="w-full border border-gray-300 rounded px-4 py-3 text-sm text-slate-600 focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400 bg-white" 
                         />
                         <input 
-                            type="text" 
+                            type="tel" 
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
                             placeholder="Phone*" 
+                            required
                             className="w-full border border-gray-300 rounded px-4 py-3 text-sm text-slate-600 focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400 bg-white" 
                         />
                         <textarea 
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
                             placeholder="Message" 
                             rows={6}
                             className="w-full border border-gray-300 rounded px-4 py-3 text-sm text-slate-600 focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400 bg-white resize-none" 
                         ></textarea>
 
-                        {/* reCAPTCHA Placeholder */}
-                        <div className="mt-4 mb-6">
-                            <div className="bg-[#f9f9f9] border border-[#d3d3d3] rounded w-[304px] h-[78px] flex items-center justify-between shadow-inner px-3">
-                                <div className="flex items-center space-x-3">
-                                    <div className="w-[28px] h-[28px] border-2 border-[#c1c1c1] bg-white rounded-sm cursor-pointer hover:border-gray-400"></div>
-                                    <span className="text-[14px] font-medium text-black">I'm not a robot</span>
-                                </div>
-                                <div className="flex flex-col items-center justify-center">
-                                    <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-[32px] h-[32px] opacity-100"/>
-                                    <span className="text-[10px] text-[#555] mt-1">reCAPTCHA</span>
-                                    <div className="text-[8px] text-[#555]">
-                                        <span className="mr-1">Privacy</span>-
-                                        <span className="ml-1">Terms</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button className="bg-brand-red text-white px-8 py-3 rounded-full font-bold hover:bg-[#003d80] transition-colors shadow-md text-sm">
+                        <button type="submit" className="bg-brand-red text-white px-8 py-3 rounded-full font-bold hover:bg-[#003d80] transition-colors shadow-md text-sm">
                             Send Message
                         </button>
                     </form>
@@ -169,8 +190,7 @@ export const ContactsPage: React.FC = () => {
                         </div>
                         <div className="space-y-1">
                             <h3 className="font-bold text-slate-500 text-[15px] mb-2">Northborough, MA 01532</h3>
-                            <p className="text-slate-500 text-[15px]">Serving New England (617) 372-0093</p>
-                            <p className="text-slate-500 text-[15px]">Emergency Services: 888-76-FLOOD</p>
+                            <a href="tel:6173720093" className="text-slate-500 text-[15px] block hover:text-brand-red transition-colors">Serving New England (617) 372-0093</a>
                             <p className="text-slate-500 text-[15px]">Email: <a href="mailto:precisionpointcleaningco@gmail.com" className="underline hover:text-brand-red break-all">precisionpointcleaningco@gmail.com</a></p>
                             <p className="text-slate-500 text-[15px]">39 Pleasant Street</p>
                             <p className="text-slate-500 text-[15px]">Northborough, MA 01532</p>

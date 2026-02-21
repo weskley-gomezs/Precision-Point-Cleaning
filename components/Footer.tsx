@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock, Facebook, Twitter, Instagram, Bell, Check } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Check } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
                 </li>
                 <li className="flex items-start text-base text-slate-500">
                     <Phone className="text-brand-red w-5 h-5 mr-3 shrink-0 mt-0.5" strokeWidth={2} />
-                    <span>Serving New England (617) 372-0093</span>
+                    <a href="tel:6173720093" className="hover:text-brand-red transition-colors">Serving New England (617) 372-0093</a>
                 </li>
                 <li className="flex items-start text-base text-slate-500">
                     <Mail className="text-brand-red w-5 h-5 mr-3 shrink-0 mt-0.5" strokeWidth={2} />
@@ -68,13 +68,6 @@ export const Footer: React.FC = () => {
                     <span>24 hrs / 7 Days</span>
                 </li>
              </ul>
-             
-             <div className="mt-8">
-                 <button className="bg-brand-red text-white px-8 py-3 rounded-full font-bold flex items-center gap-3 hover:bg-[#003d80] transition-colors shadow-md text-sm uppercase tracking-wide group w-full md:w-auto justify-center md:justify-start">
-                    <Bell size={18} className="group-hover:animate-bounce" />
-                    <span>Schedule Cleaning</span>
-                 </button>
-             </div>
           </div>
         </div>
 
@@ -91,7 +84,6 @@ export const Footer: React.FC = () => {
                 >
                   <Facebook size={18} />
                 </a>
-                <a href="#" className="text-slate-400 hover:text-brand-red transition-colors"><Twitter size={18} /></a>
                 <a 
                   href="https://www.instagram.com/precision.point.cleaning/" 
                   target="_blank" 

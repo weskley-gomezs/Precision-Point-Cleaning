@@ -5,6 +5,36 @@ export const ScheduleCleaningPage = () => {
   const [bedrooms, setBedrooms] = useState(2);
   const [bathrooms, setBathrooms] = useState(1);
   const [frequency, setFrequency] = useState('One Time Service');
+  const [formData, setFormData] = useState({
+    name: '',
+    address: '',
+    phone: '',
+    email: '',
+    serviceType: '',
+    date: '',
+    startTime: '7:00 AM',
+    endTime: '8:00 AM'
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleBookNow = () => {
+    const text = `*New Cleaning Booking*%0A%0A` +
+      `*Name:* ${formData.name}%0A` +
+      `*Address:* ${formData.address}%0A` +
+      `*Phone:* ${formData.phone}%0A` +
+      `*Email:* ${formData.email}%0A%0A` +
+      `*Home Info:* ${bedrooms} Bedrooms, ${bathrooms} Bathrooms%0A` +
+      `*Service:* ${formData.serviceType}%0A` +
+      `*Date:* ${formData.date}%0A` +
+      `*Time:* ${formData.startTime} - ${formData.endTime}%0A` +
+      `*Frequency:* ${frequency}`;
+
+    window.open(`https://wa.me/16173720093?text=${text}`, '_blank');
+  };
 
   return (
     <div className="bg-white animate-fade-in pb-16">
@@ -27,10 +57,10 @@ export const ScheduleCleaningPage = () => {
                     <p className="text-[13px] text-slate-400 mb-4">This information will be used to contact you about your service.</p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="text" placeholder="Your name*" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
-                        <input type="text" placeholder="Your address*" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
-                        <input type="text" placeholder="Phone number*" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
-                        <input type="text" placeholder="E-mail*" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
+                        <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="Your name*" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
+                        <input type="text" name="address" value={formData.address} onChange={handleInputChange} placeholder="Your address*" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
+                        <input type="text" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="Phone number*" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
+                        <input type="text" name="email" value={formData.email} onChange={handleInputChange} placeholder="E-mail*" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
                     </div>
                 </div>
 
@@ -90,11 +120,16 @@ export const ScheduleCleaningPage = () => {
                 <div className="mb-8 border-t border-gray-100 pt-6">
                     <h3 className="text-[16px] font-bold text-slate-700 mb-4">Service Requested</h3>
                     <div className="relative">
-                        <select className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white appearance-none focus:outline-none focus:border-brand-red cursor-pointer">
-                            <option>- Please Select -</option>
-                            <option>Deep Cleaning</option>
-                            <option>Standard Cleaning</option>
-                            <option>Move In/Out</option>
+                        <select 
+                            name="serviceType"
+                            value={formData.serviceType}
+                            onChange={handleInputChange}
+                            className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white appearance-none focus:outline-none focus:border-brand-red cursor-pointer"
+                        >
+                            <option value="">- Please Select -</option>
+                            <option value="Deep Cleaning">Deep Cleaning</option>
+                            <option value="Standard Cleaning">Standard Cleaning</option>
+                            <option value="Move In/Out">Move In/Out</option>
                         </select>
                         <ChevronDown size={16} className="absolute right-4 top-3 text-slate-400 pointer-events-none" />
                     </div>
@@ -107,13 +142,24 @@ export const ScheduleCleaningPage = () => {
                     
                     <div className="flex flex-col md:flex-row items-center gap-4">
                         <div className="relative w-full md:w-1/3">
-                            <input type="date" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red" />
+                            <input 
+                                type="date" 
+                                name="date"
+                                value={formData.date}
+                                onChange={handleInputChange}
+                                className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red" 
+                            />
                             <Calendar size={16} className="absolute right-4 top-3 text-slate-400 pointer-events-none hidden" /> 
                         </div>
                         <span className="text-sm text-slate-500 whitespace-nowrap">Any time between</span>
                         <div className="flex gap-2 w-full md:w-auto items-center">
                             <div className="relative w-full md:w-32">
-                                <select className="w-full border border-gray-300 rounded px-3 py-2.5 text-sm text-black bg-white appearance-none focus:outline-none focus:border-brand-red cursor-pointer">
+                                <select 
+                                    name="startTime"
+                                    value={formData.startTime}
+                                    onChange={handleInputChange}
+                                    className="w-full border border-gray-300 rounded px-3 py-2.5 text-sm text-black bg-white appearance-none focus:outline-none focus:border-brand-red cursor-pointer"
+                                >
                                     <option>7:00 AM</option>
                                     <option>8:00 AM</option>
                                     <option>9:00 AM</option>
@@ -122,7 +168,12 @@ export const ScheduleCleaningPage = () => {
                             </div>
                             <span className="self-center text-slate-400">-</span>
                             <div className="relative w-full md:w-32">
-                                <select className="w-full border border-gray-300 rounded px-3 py-2.5 text-sm text-black bg-white appearance-none focus:outline-none focus:border-brand-red cursor-pointer">
+                                <select 
+                                    name="endTime"
+                                    value={formData.endTime}
+                                    onChange={handleInputChange}
+                                    className="w-full border border-gray-300 rounded px-3 py-2.5 text-sm text-black bg-white appearance-none focus:outline-none focus:border-brand-red cursor-pointer"
+                                >
                                     <option>8:00 AM</option>
                                     <option>9:00 AM</option>
                                     <option>10:00 AM</option>
@@ -159,12 +210,16 @@ export const ScheduleCleaningPage = () => {
 
                 <div className="text-center pt-4 border-t border-gray-100 mt-6">
                      <p className="text-sm text-slate-500 mb-6 mt-6">We will confirm your service request within 24 hours. Thank you very much!</p>
-                     <button className="bg-brand-red text-white px-16 py-3.5 rounded-full font-bold uppercase tracking-wider hover:bg-[#003d80] transition-colors shadow-lg text-sm w-full md:w-auto">
+                     <button 
+                        onClick={handleBookNow}
+                        className="bg-brand-red text-white px-16 py-3.5 rounded-full font-bold uppercase tracking-wider hover:bg-[#003d80] transition-colors shadow-lg text-sm w-full md:w-auto"
+                     >
                         Book Now
                      </button>
                 </div>
 
             </div>
+
 
             {/* Right Column: Image */}
             <div className="lg:w-1/3 hidden lg:block border border-gray-200 border-l-0 rounded-r-sm">

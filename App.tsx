@@ -11,7 +11,7 @@ import { CustomersPage } from './components/CustomersPage';
 import { EmploymentPage } from './components/EmploymentPage';
 import { ReviewsPage } from './components/ReviewsPage';
 import { ContactsPage } from './components/ContactsPage';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, MessageCircle } from 'lucide-react';
 
 export default function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -72,6 +72,17 @@ export default function App() {
 
       <Footer />
 
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/16173720093"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-24 right-8 bg-[#25D366] text-white p-3 rounded-full shadow-lg hover:bg-[#128C7E] transition-colors z-50 flex items-center justify-center animate-vibrate"
+        title="Contact us on WhatsApp"
+      >
+        <MessageCircle size={24} fill="white" />
+      </a>
+
       {/* Floating Scroll to Top Button */}
       {showScrollTop && (
         <button
@@ -81,6 +92,19 @@ export default function App() {
           <ArrowUp size={24} />
         </button>
       )}
+
+      <style>{`
+        @keyframes vibrate {
+          0% { transform: scale(1); }
+          25% { transform: scale(1.1) rotate(5deg); }
+          50% { transform: scale(1.1) rotate(-5deg); }
+          75% { transform: scale(1.1) rotate(5deg); }
+          100% { transform: scale(1); }
+        }
+        .animate-vibrate {
+          animation: vibrate 2s infinite ease-in-out;
+        }
+      `}</style>
     </div>
   );
 }
