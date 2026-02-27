@@ -1,98 +1,84 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Check } from 'lucide-react';
+import { MapPin, Phone, Mail, Facebook, Instagram, ShieldCheck } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#f8f9fa] border-t border-gray-200 pt-12 md:pt-20 pb-8 text-slate-600 font-sans relative">
+    <footer className="bg-slate-900 text-white pt-16 pb-8 font-sans">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-8">
-          
-          {/* Column 1: Image (Logo) */}
-          <div className="lg:w-[15%] flex justify-start items-start pt-2">
-             <img 
-                src="https://i.imgur.com/EPtHg0n.png" 
-                alt="Precision Point Cleaning" 
-                className="w-24 md:w-28 h-auto object-contain"
-             />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          {/* Brand & Trust */}
+          <div className="col-span-1 md:col-span-1">
+            <img 
+              src="https://i.imgur.com/D45ek8D.png" 
+              alt="Precision Point Cleaning" 
+              className="h-12 w-auto mb-6 brightness-0 invert"
+            />
+            <p className="text-slate-400 mb-6">
+              The region's premier commercial and post-construction cleaning specialists. Serving Massachusetts and neighboring states. Licensed, insured, and ready for any job.
+            </p>
+            <div className="flex items-center text-brand-red font-bold">
+              <ShieldCheck size={20} className="mr-2" />
+              <span>Fully Licensed & Insured</span>
+            </div>
           </div>
 
-          {/* Column 2: Description Text */}
-          <div className="lg:w-[30%] space-y-6">
-             <div>
-                <p className="text-base leading-relaxed mb-4 text-slate-500">
-                    There's clean, and then there's <br/>
-                    <span className="font-bold text-slate-700">PRECISION POINT</span> clean.
-                </p>
-                <p className="text-base leading-relaxed mb-4 text-slate-500">
-                    Specializing in Commercial and Residential Emergency Cleaning.
-                </p>
-                <p className="text-base leading-relaxed text-slate-500">
-                    Other services include: Post Construction Cleaning, Floor Work, Fire Damage, Mold Remediation, Disaster Clean-up, Crime Scene Clean-up, Storm Damage!
-                </p>
-             </div>
-          </div>
-
-          {/* Column 3: Cleaning Services */}
-          <div className="lg:w-[25%]">
-            <h3 className="text-xl font-bold text-slate-800 mb-6">Cleaning Services</h3>
-            <ul className="space-y-3">
-                <li className="flex items-center text-base text-slate-500 group">
-                    <Check className="text-brand-red w-5 h-5 mr-3 shrink-0" strokeWidth={3} size={16} />
-                    <span className="group-hover:text-brand-red transition-colors">Commercial Cleaning</span>
-                </li>
-                <li className="flex items-center text-base text-slate-500 group">
-                    <Check className="text-brand-red w-5 h-5 mr-3 shrink-0" strokeWidth={3} size={16} />
-                    <span className="group-hover:text-brand-red transition-colors">Post Construction Cleaning</span>
-                </li>
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-bold mb-6 uppercase tracking-wider">Quick Links</h3>
+            <ul className="space-y-3 text-slate-400">
+              <li><a href="#" className="hover:text-brand-red transition-colors">Home</a></li>
+              <li><a href="#services" className="hover:text-brand-red transition-colors">Our Services</a></li>
+              <li><a href="#estimate-form" className="hover:text-brand-red transition-colors">Get Free Estimate</a></li>
+              <li><a href="#" className="hover:text-brand-red transition-colors">About Us</a></li>
             </ul>
           </div>
 
-          {/* Column 4: Contact Information */}
-          <div className="lg:w-[30%]">
-             <h3 className="text-xl font-bold text-slate-800 mb-6">Contact Information</h3>
-             <ul className="space-y-5">
-                <li className="flex items-start text-base text-slate-500">
-                    <MapPin className="text-brand-red w-5 h-5 mr-3 shrink-0 mt-0.5" strokeWidth={2} />
-                    <span>39 Pleasant Street Northborough MA 01532</span>
-                </li>
-                <li className="flex items-start text-base text-slate-500">
-                    <Phone className="text-brand-red w-5 h-5 mr-3 shrink-0 mt-0.5" strokeWidth={2} />
-                    <a href="tel:6173720093" className="hover:text-brand-red transition-colors">Serving New England (617) 372-0093</a>
-                </li>
-                <li className="flex items-start text-base text-slate-500">
-                    <Mail className="text-brand-red w-5 h-5 mr-3 shrink-0 mt-0.5" strokeWidth={2} />
-                    <a href="mailto:precisionpointcleaningco@gmail.com" className="hover:text-brand-red transition-colors break-all">precisionpointcleaningco@gmail.com</a>
-                </li>
-                <li className="flex items-start text-base text-slate-500">
-                    <Clock className="text-brand-red w-5 h-5 mr-3 shrink-0 mt-0.5" strokeWidth={2} />
-                    <span>24 hrs / 7 Days</span>
-                </li>
-             </ul>
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-bold mb-6 uppercase tracking-wider">Contact Us</h3>
+            <ul className="space-y-4">
+              <li className="flex items-center text-slate-400">
+                <Phone size={18} className="text-brand-red mr-3" />
+                <a href="tel:6173720093" className="hover:text-white transition-colors">(617) 372-0093</a>
+              </li>
+              <li className="flex items-center text-slate-400">
+                <Mail size={18} className="text-brand-red mr-3" />
+                <a href="mailto:precisionpointcleaningco@gmail.com" className="hover:text-white transition-colors break-all">precisionpointcleaningco@gmail.com</a>
+              </li>
+              <li className="flex items-start text-slate-400">
+                <MapPin size={18} className="text-brand-red mr-3 mt-1" />
+                <span>Serving Massachusetts & Neighboring States</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Socials */}
+          <div>
+            <h3 className="text-lg font-bold mb-6 uppercase tracking-wider">Follow Us</h3>
+            <div className="flex space-x-4">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61588417671600" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-slate-800 p-3 rounded-full hover:bg-brand-red transition-all"
+              >
+                <Facebook size={20} />
+              </a>
+              <a 
+                href="https://www.instagram.com/precision.point.cleaning/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-slate-800 p-3 rounded-full hover:bg-brand-red transition-all"
+              >
+                <Instagram size={20} />
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-200 mt-12 md:mt-16 pt-8 pb-4 flex flex-col md:flex-row justify-between items-center text-[15px] text-slate-500 text-center md:text-left gap-4 md:gap-0">
-            <p>© Since 1996 - Precision Point Cleaning. Designed by <a href="https://wa.me/5561981535040" target="_blank" rel="noopener noreferrer" className="underline hover:text-brand-red">Weskley Gomes</a></p>
-            
-            <div className="flex space-x-6">
-                <a 
-                  href="https://www.facebook.com/profile.php?id=61588417671600&locale=pt_BR" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-slate-400 hover:text-brand-red transition-colors"
-                >
-                  <Facebook size={18} />
-                </a>
-                <a 
-                  href="https://www.instagram.com/precision.point.cleaning/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-slate-400 hover:text-brand-red transition-colors"
-                >
-                  <Instagram size={18} />
-                </a>
-            </div>
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 gap-4">
+          <p>© {new Date().getFullYear()} Precision Point Cleaning. All rights reserved.</p>
+          <p>Licensed & Insured in MA and Neighboring States</p>
         </div>
       </div>
     </footer>

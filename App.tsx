@@ -41,7 +41,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col w-full overflow-x-hidden text-slate-600 font-sans">
-      <TopBar />
       <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
       
       <main className="flex-grow">
