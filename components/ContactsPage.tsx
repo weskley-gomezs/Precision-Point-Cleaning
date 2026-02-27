@@ -158,12 +158,12 @@ export const ContactsPage: React.FC = () => {
                 </div>
             </div>
 
-            {/* Bottom Section: Info List & Affiliate Office */}
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-12 mt-12 items-start">
-                 {/* Left: Contact List */}
-                 <div className="lg:w-1/2">
-                    <h3 className="text-xl font-bold text-slate-700 mb-6">Contact us to book your freequote.</h3>
-                    <ul className="space-y-4">
+            {/* Bottom Section: Info List */}
+            <div className="mt-12">
+                 {/* Contact List */}
+                 <div className="w-full">
+                    <h3 className="text-xl font-bold text-slate-700 mb-6">Contact us to book your free quote.</h3>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {[
                             "No contracts and no obligation",
                             "Competitive Rates",
@@ -178,24 +178,6 @@ export const ContactsPage: React.FC = () => {
                             </li>
                         ))}
                     </ul>
-                 </div>
-
-                 {/* Right: Affiliate Office */}
-                 <div className="lg:w-1/2 bg-[#f8f9fa] p-8 md:p-10 w-full">
-                    <h2 className="text-2xl md:text-[1.75rem] font-bold text-slate-700 mb-6">Affiliate Office #1</h2>
-                    
-                    <div className="flex gap-4 items-start">
-                         <div className="mt-1">
-                            <MapPin className="text-brand-red w-6 h-6 fill-brand-red text-white" />
-                        </div>
-                        <div className="space-y-1">
-                            <h3 className="font-bold text-slate-500 text-[15px] mb-2">Northborough, MA 01532</h3>
-                            <a href="tel:6173720093" className="text-slate-500 text-[15px] block hover:text-brand-red transition-colors">Serving New England (617) 372-0093</a>
-                            <p className="text-slate-500 text-[15px]">Email: <a href="mailto:precisionpointcleaningco@gmail.com" className="underline hover:text-brand-red break-all">precisionpointcleaningco@gmail.com</a></p>
-                            <p className="text-slate-500 text-[15px]">39 Pleasant Street</p>
-                            <p className="text-slate-500 text-[15px]">Northborough, MA 01532</p>
-                        </div>
-                    </div>
                  </div>
             </div>
         </div>

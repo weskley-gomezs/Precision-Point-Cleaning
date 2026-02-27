@@ -11,9 +11,11 @@ import { CustomersPage } from './components/CustomersPage';
 import { EmploymentPage } from './components/EmploymentPage';
 import { ReviewsPage } from './components/ReviewsPage';
 import { ContactsPage } from './components/ContactsPage';
+import { LoadingScreen } from './components/LoadingScreen';
 import { ArrowUp, MessageCircle } from 'lucide-react';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
 
@@ -40,8 +42,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col w-full overflow-x-hidden text-slate-600 font-sans">
-      <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
+    <>
+      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+      <div className={`min-h-screen flex flex-col w-full overflow-x-hidden text-slate-600 font-sans transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+        <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
       
       <main className="flex-grow">
         {currentPage === 'home' && <Home />}
@@ -104,6 +108,7 @@ export default function App() {
           animation: vibrate 2s infinite ease-in-out;
         }
       `}</style>
-    </div>
+      </div>
+    </>
   );
 }

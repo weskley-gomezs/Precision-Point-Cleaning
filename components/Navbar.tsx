@@ -27,8 +27,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
             />
           </div>
 
-          {/* Desktop Info & CTA */}
-          <div className="hidden lg:flex items-center space-x-8">
+          {/* Desktop Nav Links, Info & CTA */}
+          <div className="hidden lg:flex items-center space-x-10">
+            <div className="flex items-center space-x-8 mr-4">
+              <button onClick={() => handleNavClick('cleaning-services')} className="text-sm font-black text-slate-700 hover:text-brand-red transition-colors uppercase tracking-wider">Services</button>
+              <button onClick={() => handleNavClick('about')} className="text-sm font-black text-slate-700 hover:text-brand-red transition-colors uppercase tracking-wider">About Us</button>
+              <button onClick={() => handleNavClick('contacts')} className="text-sm font-black text-slate-700 hover:text-brand-red transition-colors uppercase tracking-wider">Contact</button>
+            </div>
             <div className="flex flex-col items-end">
               <span className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Call for a Free Quote</span>
               <a href="tel:6173720093" className="text-xl font-black text-brand-red hover:text-blue-800 transition-colors flex items-center">
