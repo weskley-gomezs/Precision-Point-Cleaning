@@ -16,7 +16,7 @@ app.use(express.json());
 
 // API Route for lead submission
 app.post("/api/leads", async (req, res) => {
-  const { name, phone, email, serviceType } = req.body;
+  const { name, phone, email, serviceType, city } = req.body;
 
   if (!name || !phone || !email || !serviceType) {
     return res.status(400).json({ error: "Missing required fields" });
@@ -45,6 +45,7 @@ app.post("/api/leads", async (req, res) => {
         Phone: ${phone}
         Email: ${email}
         Service Type: ${serviceType}
+        ${city ? `City: ${city}` : ''}
       `,
       html: `
         <h3>New Lead Details</h3>
@@ -52,6 +53,7 @@ app.post("/api/leads", async (req, res) => {
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Service Type:</strong> ${serviceType}</p>
+        ${city ? `<p><strong>City:</strong> ${city}</p>` : ''}
       `,
     };
 

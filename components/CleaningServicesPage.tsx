@@ -48,7 +48,7 @@ export const CleaningServicesPage: React.FC<CleaningServicesPageProps> = ({ onNa
                             We have developed a program which we can track when our managers go to your facility and when our employees are at your facility.
                         </p>
                         <p>
-                            We can accommodate any schedule and budget. <button onClick={() => onNavigate('contacts')} className="text-slate-500 underline hover:text-brand-red transition-colors cursor-pointer bg-transparent border-none p-0 inline">Contact</button> us today for a FREE estimate.
+                            We can accommodate any schedule and budget. <button onClick={() => onNavigate('estimate-form')} className="text-slate-500 underline hover:text-brand-red transition-colors cursor-pointer bg-transparent border-none p-0 inline">Contact</button> us today for a FREE estimate.
                         </p>
                     </div>
 

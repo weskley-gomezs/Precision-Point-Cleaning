@@ -38,6 +38,24 @@ export default function App() {
   };
 
   const handleNavigate = (pageId: string) => {
+    if (pageId === 'estimate-form') {
+      if (currentPage !== 'home') {
+        setCurrentPage('home');
+        // Wait for Home component to mount before scrolling
+        setTimeout(() => {
+          const element = document.getElementById('estimate-form');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        const element = document.getElementById('estimate-form');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      return;
+    }
     setCurrentPage(pageId);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -61,7 +79,7 @@ export default function App() {
         <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
       
       <main className="flex-grow">
-        {currentPage === 'home' && <Home />}
+        {currentPage === 'home' && <Home onNavigate={handleNavigate} />}
         {currentPage === 'about' && <AboutUsPage />}
         {currentPage === 'cleaning-services' && <CleaningServicesPage onNavigate={handleNavigate} />}
         {currentPage === 'special-emergency-cleaning' && <SpecialServicesPage onNavigate={handleNavigate} />}
@@ -86,7 +104,7 @@ export default function App() {
         )}
       </main>
 
-      <Footer />
+      <Footer onNavigate={handleNavigate} />
 
       {/* Floating WhatsApp Button */}
       <a

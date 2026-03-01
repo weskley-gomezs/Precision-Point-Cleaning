@@ -12,7 +12,8 @@ export const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose })
     name: '',
     phone: '',
     email: '',
-    serviceType: 'Residential Cleaning'
+    serviceType: 'Residential Cleaning',
+    city: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -133,6 +134,18 @@ export const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose })
                       </select>
                     </div>
 
+                    <div>
+                      <label className="block text-xs font-black text-slate-400 uppercase tracking-widest mb-1 ml-1">City</label>
+                      <input 
+                        required
+                        type="text"
+                        placeholder="Your City"
+                        className="w-full px-5 py-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-brand-red focus:bg-white outline-none transition-all font-medium"
+                        value={formData.city}
+                        onChange={(e) => setFormData({...formData, city: e.target.value})}
+                      />
+                    </div>
+
                     {error && <p className="text-red-500 text-sm font-bold text-center">{error}</p>}
 
                     <button 
@@ -158,7 +171,7 @@ export const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose })
                   </div>
                   <h2 className="text-3xl font-black text-slate-800 uppercase tracking-tighter mb-4">Success!</h2>
                   <p className="text-slate-600 font-medium leading-relaxed mb-8">
-                    Seu formulário foi enviado com sucesso e em alguns instantes nossa equipe entrará em contato com você.
+                    Em breve nossa equipe entrará em contato
                   </p>
                   <button 
                     onClick={onClose}

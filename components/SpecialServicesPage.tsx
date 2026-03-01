@@ -40,7 +40,7 @@ export const SpecialServicesPage: React.FC<SpecialServicesPageProps> = ({ onNavi
                             The appearance of your commercial building can have a direct effect on your bottom line. Whether your building suffered a flood and need emergency clean-up or just want to give your building a fresh coat of paint, Precision Point Cleaning is your solution.
                         </p>
                         <p>
-                            Make sure your business is inviting for customers and employees - <button onClick={() => onNavigate('contacts')} className="text-slate-500 underline hover:text-brand-red transition-colors cursor-pointer bg-transparent border-none p-0 inline">contact</button> us today for a FREE estimate.
+                            Make sure your business is inviting for customers and employees - <button onClick={() => onNavigate('estimate-form')} className="text-slate-500 underline hover:text-brand-red transition-colors cursor-pointer bg-transparent border-none p-0 inline">contact</button> us today for a FREE estimate.
                         </p>
                     </div>
 

@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
               </a>
             </div>
             <button 
-              onClick={() => handleNavClick('schedule-cleaning')}
+              onClick={() => handleNavClick('estimate-form')}
               className="bg-brand-red text-white px-8 py-3 rounded-full font-black uppercase tracking-wider hover:bg-blue-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm"
             >
               Get Free Estimate
@@ -71,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             <button onClick={() => handleNavClick('about')} className="text-left font-bold text-slate-700 py-2">ABOUT US</button>
             <button onClick={() => handleNavClick('contacts')} className="text-left font-bold text-slate-700 py-2">CONTACT</button>
             <button 
-              onClick={() => handleNavClick('schedule-cleaning')}
+              onClick={() => handleNavClick('estimate-form')}
               className="bg-brand-red text-white px-6 py-4 rounded-full font-black uppercase tracking-wider text-center"
             >
               Get Free Estimate

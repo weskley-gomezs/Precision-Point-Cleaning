@@ -1,7 +1,11 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Facebook, Instagram, ShieldCheck } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate?: (pageId: string) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
     <footer className="bg-slate-900 text-white pt-16 pb-8 font-sans">
       <div className="container mx-auto px-4">
@@ -26,10 +30,10 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold mb-6 uppercase tracking-wider">Quick Links</h3>
             <ul className="space-y-3 text-slate-400">
-              <li><a href="#" className="hover:text-brand-red transition-colors">Home</a></li>
-              <li><a href="#services" className="hover:text-brand-red transition-colors">Our Services</a></li>
-              <li><a href="#estimate-form" className="hover:text-brand-red transition-colors">Get Free Estimate</a></li>
-              <li><a href="#" className="hover:text-brand-red transition-colors">About Us</a></li>
+              <li><button onClick={() => onNavigate?.('home')} className="hover:text-brand-red transition-colors bg-transparent border-none p-0">Home</button></li>
+              <li><button onClick={() => onNavigate?.('cleaning-services')} className="hover:text-brand-red transition-colors bg-transparent border-none p-0">Our Services</button></li>
+              <li><button onClick={() => onNavigate?.('estimate-form')} className="hover:text-brand-red transition-colors bg-transparent border-none p-0">Get Free Estimate</button></li>
+              <li><button onClick={() => onNavigate?.('about')} className="hover:text-brand-red transition-colors bg-transparent border-none p-0">About Us</button></li>
             </ul>
           </div>
 

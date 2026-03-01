@@ -7,7 +7,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, phone, email, serviceType } = req.body;
+  const { name, phone, email, serviceType, city } = req.body;
 
   // Basic validation
   if (!name || !phone || !email || !serviceType) {
@@ -37,6 +37,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         Phone: ${phone}
         Email: ${email}
         Service Type: ${serviceType}
+        ${city ? `City: ${city}` : ''}
       `,
       html: `
         <h3>New Lead Details</h3>
@@ -44,6 +45,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Service Type:</strong> ${serviceType}</p>
+        ${city ? `<p><strong>City:</strong> ${city}</p>` : ''}
       `,
     };
 

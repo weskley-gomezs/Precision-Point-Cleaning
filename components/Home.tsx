@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Check, Star, Shield, Clock, MapPin, Users, Zap, Phone, ArrowRight } from 'lucide-react';
 
-export const Home: React.FC = () => {
+interface HomeProps {
+  onNavigate?: (page: string) => void;
+}
+
+export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -10,15 +14,54 @@ export const Home: React.FC = () => {
     city: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `*New Estimate Request*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Email:* ${formData.email}%0A*Service:* ${formData.service}%0A*City:* ${formData.city}`;
-    window.open(`https://wa.me/16173720093?text=${text}`, '_blank');
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          serviceType: formData.service,
+          city: formData.city
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        
+        // Reset form
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          service: '',
+          city: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -60,12 +103,12 @@ export const Home: React.FC = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="#estimate-form"
+              <button 
+                onClick={() => onNavigate ? onNavigate('estimate-form') : null}
                 className="bg-brand-red text-white px-10 py-4 rounded-full font-black uppercase tracking-wider hover:bg-blue-800 transition-all text-center shadow-xl"
               >
                 Request Free Estimate
-              </a>
+              </button>
               <a 
                 href="tel:6173720093"
                 className="bg-white text-slate-900 px-10 py-4 rounded-full font-black uppercase tracking-wider hover:bg-slate-100 transition-all text-center flex items-center justify-center"
@@ -159,9 +202,12 @@ export const Home: React.FC = () => {
                 <h3 className="text-2xl font-black text-slate-900 mb-4">{s.title}</h3>
                 <p className="text-slate-400 text-sm mb-4 font-bold uppercase tracking-wide">The Problem: {s.problem}</p>
                 <p className="text-slate-600 mb-8">{s.solution}</p>
-                <a href="#estimate-form" className="text-brand-red font-black flex items-center hover:underline">
+                <button 
+                  onClick={() => onNavigate ? onNavigate('estimate-form') : null}
+                  className="text-brand-red font-black flex items-center hover:underline bg-transparent border-none p-0"
+                >
                   Get a Quote <ArrowRight size={16} className="ml-2" />
-                </a>
+                </button>
               </div>
             ))}
           </div>
@@ -277,10 +323,17 @@ export const Home: React.FC = () => {
                 />
                 <button 
                   type="submit"
-                  className="w-full bg-brand-red text-white py-4 rounded-full font-black uppercase tracking-wider hover:bg-blue-800 transition-all shadow-lg mt-6"
+                  disabled={isSubmitting}
+                  className="w-full bg-brand-red text-white py-4 rounded-full font-black uppercase tracking-wider hover:bg-blue-800 transition-all shadow-lg mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Request My Free Estimate
+                  {isSubmitting ? 'Sending...' : 'Request My Free Estimate'}
                 </button>
+                {submitStatus === 'success' && (
+                  <p className="text-green-600 font-bold text-center mt-2">Em breve nossa equipe entrará em contato</p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="text-red-600 font-bold text-center mt-2">Failed to send request. Please try again.</p>
+                )}
               </form>
             </div>
           </div>
