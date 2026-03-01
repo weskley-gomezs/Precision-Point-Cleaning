@@ -12,10 +12,12 @@ import { EmploymentPage } from './components/EmploymentPage';
 import { ReviewsPage } from './components/ReviewsPage';
 import { ContactsPage } from './components/ContactsPage';
 import { LoadingScreen } from './components/LoadingScreen';
+import { LeadFormModal } from './components/LeadFormModal';
 import { ArrowUp, MessageCircle } from 'lucide-react';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showLeadModal, setShowLeadModal] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
 
@@ -41,9 +43,21 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    // Show lead modal after a short delay if not already submitted
+    const isSubmitted = localStorage.getItem('lead_form_submitted');
+    if (!isSubmitted) {
+      setTimeout(() => {
+        setShowLeadModal(true);
+      }, 1500);
+    }
+  };
+
   return (
     <>
-      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+      {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
+      <LeadFormModal isOpen={showLeadModal} onClose={() => setShowLeadModal(false)} />
       <div className={`min-h-screen flex flex-col w-full overflow-x-hidden text-slate-600 font-sans transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <Navbar currentPage={currentPage} onNavigate={handleNavigate} />
       
