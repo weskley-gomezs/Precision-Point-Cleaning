@@ -6,7 +6,7 @@ interface NavbarProps {
   onNavigate: (page: string) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleNavClick = (id: string) => {

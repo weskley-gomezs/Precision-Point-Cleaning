@@ -41,7 +41,7 @@ declare module '*.bmp' {
 }
 
 interface ImportMetaEnv {
-  [key: string]: any;
+  [key: string]: string | boolean | undefined;
   readonly BASE_URL: string;
   readonly MODE: string;
   readonly DEV: boolean;

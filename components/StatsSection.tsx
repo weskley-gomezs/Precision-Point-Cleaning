@@ -41,13 +41,14 @@ const AnimatedCounter = ({ value }: { value: string }) => {
       { threshold: 0.2 } // Trigger when 20% of the item is visible
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
+    const currentElement = elementRef.current;
+    if (currentElement) {
+      observer.observe(currentElement);
     }
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
+      if (currentElement) {
+        observer.unobserve(currentElement);
       }
     };
   }, [numericValue]);

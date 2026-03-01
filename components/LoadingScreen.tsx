@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Brush as Broom, Eraser as Squeegee } from 'lucide-react';
 
 export const LoadingScreen: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const [phase, setPhase] = useState<'sweeping' | 'wiping' | 'done'>('sweeping');

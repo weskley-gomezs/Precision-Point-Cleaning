@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { TopBar } from './components/TopBar';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Home } from './components/Home';
@@ -45,12 +44,12 @@ export default function App() {
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
-    // Show lead modal after a short delay if not already submitted
-    const isSubmitted = localStorage.getItem('lead_form_submitted');
+    // Show lead modal after a short delay if not already submitted in this session
+    const isSubmitted = sessionStorage.getItem('lead_form_submitted');
     if (!isSubmitted) {
       setTimeout(() => {
         setShowLeadModal(true);
-      }, 1500);
+      }, 500);
     }
   };
 
