@@ -12,7 +12,7 @@ import { ReviewsPage } from './components/ReviewsPage';
 import { ContactsPage } from './components/ContactsPage';
 import { LoadingScreen } from './components/LoadingScreen';
 import { LeadFormModal } from './components/LeadFormModal';
-import { ArrowUp, MessageCircle } from 'lucide-react';
+import { ArrowUp, Phone } from 'lucide-react';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -106,24 +106,23 @@ export default function App() {
 
       <Footer onNavigate={handleNavigate} />
 
-      {/* Floating WhatsApp Button */}
+      {/* Floating Call Button */}
       <a
-        href="https://wa.me/16173720093"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-24 right-8 bg-[#25D366] text-white p-3 rounded-full shadow-lg hover:bg-[#128C7E] transition-colors z-50 flex items-center justify-center animate-vibrate"
-        title="Contact us on WhatsApp"
+        href="tel:6173720093"
+        className="fixed bottom-8 right-8 bg-brand-red text-white px-6 py-3 rounded-full shadow-xl hover:bg-blue-800 transition-all z-50 flex items-center justify-center space-x-2 font-bold"
+        title="Call us now"
       >
-        <MessageCircle size={24} fill="white" />
+        <Phone size={20} fill="white" />
+        <span>Call Now</span>
       </a>
 
       {/* Floating Scroll to Top Button */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-brand-red text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition-colors z-50 animate-fade-in"
+          className="fixed bottom-24 right-8 bg-slate-800 text-white p-3 rounded-full shadow-lg hover:bg-slate-700 transition-colors z-50 animate-fade-in"
         >
-          <ArrowUp size={24} />
+          <ArrowUp size={20} />
         </button>
       )}
 

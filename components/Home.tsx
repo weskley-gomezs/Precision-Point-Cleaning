@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, Star, Shield, Clock, MapPin, Users, Zap, Phone, ArrowRight } from 'lucide-react';
+import { Check, Star, MapPin, Phone } from 'lucide-react';
 
 interface HomeProps {
   onNavigate?: (page: string) => void;
@@ -156,63 +156,60 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 4️⃣ Services Section */}
-      <section className="py-20 bg-slate-50">
+      {/* 4️⃣ Expertise Section (New) */}
+      <section className="py-20 bg-brand-light-gray">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 uppercase">Our Specialized Services</h2>
-            <p className="text-lg text-slate-500">Professional cleaning solutions designed to keep your business running smoothly and looking its best.</p>
+          <div className="text-center max-w-4xl mx-auto mb-16">
+            <p className="text-brand-red font-bold mb-2">Expert Cleaning by</p>
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6">Precision Point Cleaning</h2>
+            <p className="text-slate-500 text-lg leading-relaxed">
+              Our highly trained and experienced team delivers top-quality cleaning for all types of commercial environments — going beyond cleaning to create a healthier, safer, and spotless space for your business. Our highly trained and experienced team delivers top-quality cleaning for all types of commercial environments — going beyond cleaning to create a healthier, safer, and spotless space for your business.
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: "Commercial Cleaning",
-                problem: "Dirty workspaces kill productivity and drive away clients.",
-                solution: "Our deep commercial cleaning ensures a pristine, healthy environment for your staff and customers.",
-                icon: <Shield className="text-brand-red" size={32} />
+                title: "Post Construction Cleaning",
+                desc: "After renovations or construction, we remove dust, debris, and residues, leaving your space spotless, safe, and ready to use.",
+                image: "https://i.imgur.com/pk55fix.jpeg"
               },
               {
-                title: "Post-Construction",
-                problem: "Dust and debris can delay final inspections and handovers.",
-                solution: "We specialize in high-detail post-construction cleanup that makes your project shine and ready for occupancy.",
-                icon: <Zap className="text-brand-red" size={32} />
+                title: "Office & Gym",
+                desc: "We provide professional cleaning services for corporate offices and fitness centers, maintaining a sanitized, organized, and healthy environment for your employees and clients.",
+                image: "https://i.imgur.com/ssA694n.jpeg"
               },
               {
-                title: "Office Janitorial",
-                problem: "Inconsistent cleaning leads to buildup and office odors.",
-                solution: "Daily or weekly janitorial services tailored to your office's specific needs and high-traffic areas.",
-                icon: <Users className="text-brand-red" size={32} />
+                title: "Commercial Kitchen Deep Cleaning",
+                desc: "We specialize in commercial kitchen deep cleaning for restaurants and food service facilities. Our team provides complete cleaning solutions, including floors, walls, hoods, and equipment, ensuring every area meets the highest hygiene and safety standards.",
+                image: "https://i.imgur.com/0Ut4r6C.jpeg"
               },
               {
-                title: "Snow Removal",
-                problem: "Snow and ice are major liability risks for your business.",
-                solution: "Fast, reliable snow plowing and salting to keep your parking lots and walkways safe for everyone.",
-                icon: <Clock className="text-brand-red" size={32} />
-              },
-              {
-                title: "Floor Stripping & Waxing",
-                problem: "Dull, scuffed floors make your entire facility look aged.",
-                solution: "Professional floor restoration that brings back the shine and protects your investment for years.",
-                icon: <Star className="text-brand-red" size={32} />
+                title: "Window cleaning & Exterior cleaning",
+                desc: "We specialize in commercial kitchen deep cleaning for restaurants and food service facilities. Our team provides complete cleaning solutions, including floors, walls, hoods, and equipment, ensuring every area meets the highest hygiene and safety standards.",
+                image: "https://i.imgur.com/rgdP33T.jpeg"
               }
-            ].map((s, i) => (
-              <div key={i} className="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                <div className="mb-6">{s.icon}</div>
-                <h3 className="text-2xl font-black text-slate-900 mb-4">{s.title}</h3>
-                <p className="text-slate-400 text-sm mb-4 font-bold uppercase tracking-wide">The Problem: {s.problem}</p>
-                <p className="text-slate-600 mb-8">{s.solution}</p>
-                <button 
-                  onClick={() => onNavigate ? onNavigate('estimate-form') : null}
-                  className="text-brand-red font-black flex items-center hover:underline bg-transparent border-none p-0"
-                >
-                  Get a Quote <ArrowRight size={16} className="ml-2" />
-                </button>
+            ].map((service, i) => (
+              <div key={i} className="bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col h-full border border-slate-100 hover:shadow-md transition-shadow">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div className="p-6 flex-grow">
+                  <h3 className="text-xl font-black text-slate-900 mb-4">{service.title}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{service.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* 5️⃣ Services Section */}
 
       {/* 5️⃣ Why Choose Us Section */}
       <section className="py-20 bg-white">
