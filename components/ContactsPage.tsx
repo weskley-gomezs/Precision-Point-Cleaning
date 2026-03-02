@@ -20,6 +20,11 @@ export const ContactsPage: React.FC = () => {
     const text = `*New Contact Form Submission*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Message:* ${formData.message}`;
     
     window.open(`https://wa.me/16173720093?text=${text}`, '_blank');
+    
+    // Redirect to thank you page after a short delay
+    setTimeout(() => {
+      window.location.href = '/thank-you.html';
+    }, 1000);
   };
 
   return (

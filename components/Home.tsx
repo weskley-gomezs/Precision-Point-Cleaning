@@ -44,6 +44,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
       if (response.ok) {
         setSubmitStatus('success');
+        window.location.href = '/thank-you.html';
         
         // Reset form
         setFormData({

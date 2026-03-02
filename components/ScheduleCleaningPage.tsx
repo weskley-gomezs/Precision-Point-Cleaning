@@ -34,6 +34,11 @@ export const ScheduleCleaningPage = () => {
       `*Frequency:* ${frequency}`;
 
     window.open(`https://wa.me/16173720093?text=${text}`, '_blank');
+
+    // Redirect to thank you page after a short delay
+    setTimeout(() => {
+      window.location.href = '/thank-you.html';
+    }, 1000);
   };
 
   return (
