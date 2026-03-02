@@ -19,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center shrink-0 cursor-pointer" onClick={() => handleNavClick('home')}>
+          <div id="navbar-logo" className="flex items-center shrink-0 cursor-pointer" onClick={() => handleNavClick('home')}>
             <img 
               src="https://i.imgur.com/D45ek8D.png" 
               alt="Precision Point Cleaning" 
@@ -30,18 +30,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           {/* Desktop Nav Links, Info & CTA */}
           <div className="hidden lg:flex items-center space-x-10">
             <div className="flex items-center space-x-8 mr-4">
-              <button onClick={() => handleNavClick('cleaning-services')} className="text-sm font-black text-slate-700 hover:text-brand-red transition-colors uppercase tracking-wider">Services</button>
-              <button onClick={() => handleNavClick('about')} className="text-sm font-black text-slate-700 hover:text-brand-red transition-colors uppercase tracking-wider">About Us</button>
-              <button onClick={() => handleNavClick('contacts')} className="text-sm font-black text-slate-700 hover:text-brand-red transition-colors uppercase tracking-wider">Contact</button>
+              <button id="navbar-services-link" onClick={() => handleNavClick('cleaning-services')} className="text-sm font-black text-slate-700 hover:text-brand-red transition-colors uppercase tracking-wider">Services</button>
+              <button id="navbar-about-link" onClick={() => handleNavClick('about')} className="text-sm font-black text-slate-700 hover:text-brand-red transition-colors uppercase tracking-wider">About Us</button>
+              <button id="navbar-contact-link" onClick={() => handleNavClick('contacts')} className="text-sm font-black text-slate-700 hover:text-brand-red transition-colors uppercase tracking-wider">Contact</button>
             </div>
             <div className="flex flex-col items-end">
               <span className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Call for a Free Quote</span>
-              <a href="tel:6173720093" className="text-xl font-black text-brand-red hover:text-blue-800 transition-colors flex items-center">
+              <a id="navbar-phone-link" href="tel:6173720093" className="text-xl font-black text-brand-red hover:text-blue-800 transition-colors flex items-center">
                 <Phone size={18} className="mr-2 fill-brand-red" />
                 (617) 372-0093
               </a>
             </div>
             <button 
+              id="navbar-estimate-button"
               onClick={() => handleNavClick('estimate-form')}
               className="bg-brand-red text-white px-8 py-3 rounded-full font-black uppercase tracking-wider hover:bg-blue-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm"
             >
@@ -51,10 +52,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
           {/* Mobile Actions */}
           <div className="flex lg:hidden items-center space-x-4">
-            <a href="tel:6173720093" className="bg-brand-red text-white p-2.5 rounded-full shadow-md">
+            <a id="navbar-mobile-phone-link" href="tel:6173720093" className="bg-brand-red text-white p-2.5 rounded-full shadow-md">
               <Phone size={20} fill="white" />
             </a>
             <button 
+              id="navbar-mobile-menu-toggle"
               className="text-slate-700 p-2"
               onClick={() => setIsOpen(!isOpen)}
             >
@@ -66,11 +68,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="lg:hidden mt-4 pb-6 flex flex-col space-y-4 border-t pt-4 animate-fade-in">
-            <button onClick={() => handleNavClick('home')} className="text-left font-bold text-slate-700 py-2">HOME</button>
-            <button onClick={() => handleNavClick('cleaning-services')} className="text-left font-bold text-slate-700 py-2">SERVICES</button>
-            <button onClick={() => handleNavClick('about')} className="text-left font-bold text-slate-700 py-2">ABOUT US</button>
-            <button onClick={() => handleNavClick('contacts')} className="text-left font-bold text-slate-700 py-2">CONTACT</button>
+            <button id="navbar-mobile-home-link" onClick={() => handleNavClick('home')} className="text-left font-bold text-slate-700 py-2">HOME</button>
+            <button id="navbar-mobile-services-link" onClick={() => handleNavClick('cleaning-services')} className="text-left font-bold text-slate-700 py-2">SERVICES</button>
+            <button id="navbar-mobile-about-link" onClick={() => handleNavClick('about')} className="text-left font-bold text-slate-700 py-2">ABOUT US</button>
+            <button id="navbar-mobile-contact-link" onClick={() => handleNavClick('contacts')} className="text-left font-bold text-slate-700 py-2">CONTACT</button>
             <button 
+              id="navbar-mobile-estimate-button"
               onClick={() => handleNavClick('estimate-form')}
               className="bg-brand-red text-white px-6 py-4 rounded-full font-black uppercase tracking-wider text-center"
             >

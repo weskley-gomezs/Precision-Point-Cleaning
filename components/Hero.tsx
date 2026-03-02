@@ -59,6 +59,7 @@ export const Hero: React.FC = () => {
             </h1>
             
             <a 
+              id={`hero-consultation-link-${slide.id}`}
               href="https://wa.me/16173720093"
               target="_blank"
               rel="noopener noreferrer"
@@ -72,12 +73,14 @@ export const Hero: React.FC = () => {
 
       {/* Navigation Arrows */}
       <button 
+        id="hero-prev-slide-button"
         onClick={prevSlide}
         className="absolute top-1/2 left-2 md:left-10 -translate-y-1/2 text-white/80 hover:text-white cursor-pointer z-20 transition-transform hover:-translate-x-1 p-2"
       >
         <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16" strokeWidth={1} />
       </button>
       <button 
+        id="hero-next-slide-button"
         onClick={nextSlide}
         className="absolute top-1/2 right-2 md:right-10 -translate-y-1/2 text-white/80 hover:text-white cursor-pointer z-20 transition-transform hover:translate-x-1 p-2"
       >
@@ -88,6 +91,7 @@ export const Hero: React.FC = () => {
       <div className="absolute bottom-4 md:bottom-10 left-1/2 -translate-x-1/2 flex space-x-2 md:space-x-3 z-20">
         {slides.map((_, index) => (
           <button
+            id={`hero-dot-button-${index}`}
             key={index}
             onClick={() => setCurrent(index)}
             className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 border-2 border-transparent ${

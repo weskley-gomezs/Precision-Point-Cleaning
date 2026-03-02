@@ -61,6 +61,7 @@ export const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose })
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-red to-blue-800" />
             
             <button 
+              id="lead-modal-close-button"
               onClick={onClose}
               className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 transition-colors rounded-full hover:bg-slate-100"
             >
@@ -149,6 +150,7 @@ export const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose })
                     {error && <p className="text-red-500 text-sm font-bold text-center">{error}</p>}
 
                     <button 
+                      id="lead-modal-submit-button"
                       disabled={isSubmitting}
                       type="submit"
                       className="w-full bg-brand-red text-white py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-blue-800 transition-all shadow-xl hover:shadow-2xl flex items-center justify-center space-x-3 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -174,6 +176,7 @@ export const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose })
                     Em breve nossa equipe entrará em contato
                   </p>
                   <button 
+                    id="lead-modal-success-close-button"
                     onClick={onClose}
                     className="px-10 py-4 bg-slate-800 text-white rounded-2xl font-black uppercase tracking-widest hover:bg-slate-700 transition-all"
                   >

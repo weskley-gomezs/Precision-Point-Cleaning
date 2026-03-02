@@ -30,10 +30,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div>
             <h3 className="text-lg font-bold mb-6 uppercase tracking-wider">Quick Links</h3>
             <ul className="space-y-3 text-slate-400">
-              <li><button onClick={() => onNavigate?.('home')} className="hover:text-brand-red transition-colors bg-transparent border-none p-0">Home</button></li>
-              <li><button onClick={() => onNavigate?.('cleaning-services')} className="hover:text-brand-red transition-colors bg-transparent border-none p-0">Our Services</button></li>
-              <li><button onClick={() => onNavigate?.('estimate-form')} className="hover:text-brand-red transition-colors bg-transparent border-none p-0">Get Free Estimate</button></li>
-              <li><button onClick={() => onNavigate?.('about')} className="hover:text-brand-red transition-colors bg-transparent border-none p-0">About Us</button></li>
+              <li><button id="footer-home-link" onClick={() => onNavigate?.('home')} className="hover:text-brand-red transition-colors bg-transparent border-none p-0">Home</button></li>
+              <li><button id="footer-services-link" onClick={() => onNavigate?.('cleaning-services')} className="hover:text-brand-red transition-colors bg-transparent border-none p-0">Our Services</button></li>
+              <li><button id="footer-estimate-link" onClick={() => onNavigate?.('estimate-form')} className="hover:text-brand-red transition-colors bg-transparent border-none p-0">Get Free Estimate</button></li>
+              <li><button id="footer-about-link" onClick={() => onNavigate?.('about')} className="hover:text-brand-red transition-colors bg-transparent border-none p-0">About Us</button></li>
             </ul>
           </div>
 
@@ -43,11 +43,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-4">
               <li className="flex items-center text-slate-400">
                 <Phone size={18} className="text-brand-red mr-3" />
-                <a href="tel:6173720093" className="hover:text-white transition-colors">(617) 372-0093</a>
+                <a id="footer-phone-link" href="tel:6173720093" className="hover:text-white transition-colors">(617) 372-0093</a>
               </li>
               <li className="flex items-center text-slate-400">
                 <Mail size={18} className="text-brand-red mr-3" />
-                <a href="mailto:precisionpointcleaningco@gmail.com" className="hover:text-white transition-colors break-all">precisionpointcleaningco@gmail.com</a>
+                <a id="footer-email-link" href="mailto:precisionpointcleaningco@gmail.com" className="hover:text-white transition-colors break-all">precisionpointcleaningco@gmail.com</a>
               </li>
               <li className="flex items-start text-slate-400">
                 <MapPin size={18} className="text-brand-red mr-3 mt-1" />
@@ -61,6 +61,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <h3 className="text-lg font-bold mb-6 uppercase tracking-wider">Follow Us</h3>
             <div className="flex space-x-4">
               <a 
+                id="footer-facebook-link"
                 href="https://www.facebook.com/profile.php?id=61588417671600" 
                 target="_blank" 
                 rel="noopener noreferrer" 
@@ -69,6 +70,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <Facebook size={20} />
               </a>
               <a 
+                id="footer-instagram-link"
                 href="https://www.instagram.com/precision.point.cleaning/" 
                 target="_blank" 
                 rel="noopener noreferrer" 

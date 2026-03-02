@@ -95,6 +95,7 @@ export default function App() {
                 <h2 className="text-3xl font-bold mb-4 text-slate-700">Coming Soon</h2>
                 <p className="text-slate-500 mb-8">The <span className="font-bold text-brand-red uppercase">{currentPage.replace('-', ' ')}</span> page is currently under construction.</p>
                 <button 
+                    id="return-home-button"
                     onClick={() => handleNavigate('home')}
                     className="bg-brand-red text-white px-8 py-3 rounded-full font-bold hover:bg-blue-800 transition-colors uppercase tracking-wide text-sm"
                 >
@@ -108,6 +109,7 @@ export default function App() {
 
       {/* Floating Call Button */}
       <a
+        id="call-now-floating-button"
         href="tel:6173720093"
         className="fixed bottom-8 right-8 bg-brand-red text-white px-6 py-3 rounded-full shadow-xl hover:bg-blue-800 transition-all z-50 flex items-center justify-center space-x-2 font-bold"
         title="Call us now"
@@ -119,6 +121,7 @@ export default function App() {
       {/* Floating Scroll to Top Button */}
       {showScrollTop && (
         <button
+          id="scroll-to-top-button"
           onClick={scrollToTop}
           className="fixed bottom-24 right-8 bg-slate-800 text-white p-3 rounded-full shadow-lg hover:bg-slate-700 transition-colors z-50 animate-fade-in"
         >

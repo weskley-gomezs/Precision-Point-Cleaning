@@ -104,12 +104,14 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <button 
+                id="home-hero-estimate-button"
                 onClick={() => onNavigate ? onNavigate('estimate-form') : null}
                 className="bg-brand-red text-white px-10 py-4 rounded-full font-black uppercase tracking-wider hover:bg-blue-800 transition-all text-center shadow-xl"
               >
                 Request Free Estimate
               </button>
               <a 
+                id="home-hero-call-now-link"
                 href="tel:6173720093"
                 className="bg-white text-slate-900 px-10 py-4 rounded-full font-black uppercase tracking-wider hover:bg-slate-100 transition-all text-center flex items-center justify-center"
               >
@@ -319,6 +321,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   className="w-full border-b-2 border-slate-200 py-3 focus:border-brand-red outline-none transition-colors"
                 />
                 <button 
+                  id="home-estimate-form-submit-button"
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full bg-brand-red text-white py-4 rounded-full font-black uppercase tracking-wider hover:bg-blue-800 transition-all shadow-lg mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
