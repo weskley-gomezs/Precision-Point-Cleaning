@@ -65,6 +65,53 @@ app.post("/api/leads", async (req, res) => {
   }
 });
 
+// API Route for contact form submission
+app.post("/api/contact", async (req, res) => {
+  const { name, email, phone, message } = req.body;
+
+  if (!name || !email || !phone) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  try {
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || "587"),
+      secure: process.env.SMTP_SECURE === "true",
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: `"Precision Point Contact" <${process.env.SMTP_USER}>`,
+      to: process.env.NOTIFICATION_EMAIL,
+      subject: `New Contact Message from ${name}`,
+      text: `
+        New Contact Form Submission:
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone}
+        Message: ${message}
+      `,
+      html: `
+        <h3>New Contact Form Submission</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+    res.json({ success: true, message: "Contact message sent" });
+  } catch (error) {
+    console.error("Error sending contact email:", error);
+    res.status(500).json({ error: "Failed to send contact email" });
+  }
+});
+
 // Vite middleware for development
 async function setupVite() {
   if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {

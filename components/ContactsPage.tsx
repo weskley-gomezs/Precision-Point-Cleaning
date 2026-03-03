@@ -9,22 +9,40 @@ export const ContactsPage: React.FC = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
     
-    const text = `*New Contact Form Submission*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Message:* ${formData.message}`;
-    
-    window.open(`https://wa.me/16173720093?text=${text}`, '_blank');
-    
-    // Redirect to thank you page after a short delay
-    setTimeout(() => {
-      window.location.href = '/thank-you.html';
-    }, 1000);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        window.location.href = '/thank-you.html';
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -156,9 +174,16 @@ export const ContactsPage: React.FC = () => {
                             className="w-full border border-gray-300 rounded px-4 py-3 text-sm text-slate-600 focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400 bg-white resize-none" 
                         ></textarea>
 
-                        <button type="submit" className="bg-brand-red text-white px-8 py-3 rounded-full font-bold hover:bg-[#003d80] transition-colors shadow-md text-sm">
-                            Send Message
+                        <button 
+                            type="submit" 
+                            disabled={isSubmitting}
+                            className="bg-brand-red text-white px-8 py-3 rounded-full font-bold hover:bg-[#003d80] transition-colors shadow-md text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            {isSubmitting ? 'Sending...' : 'Send Message'}
                         </button>
+                        {submitStatus === 'error' && (
+                            <p className="text-red-600 text-sm font-bold mt-2">Failed to send message. Please try again.</p>
+                        )}
                     </form>
                 </div>
             </div>
