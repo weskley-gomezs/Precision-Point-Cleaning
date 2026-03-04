@@ -24,11 +24,11 @@ export const ReviewsPage: React.FC = () => {
         <div className="bg-white animate-fade-in">
             <div className="container mx-auto px-4 py-16">
                  {/* Header */}
-                 <h1 className="text-3xl md:text-4xl text-slate-700 font-bold text-center mb-4">
-                    Our Dear Clients Say
+                 <h1 className="text-4xl md:text-6xl font-black text-slate-900 text-center mb-6 uppercase tracking-tight">
+                    What Our Clients Say
                 </h1>
-                <h2 className="text-xl text-slate-700 font-bold text-center mb-16">
-                    Read what our happy customers are saying...
+                <h2 className="text-xl text-slate-500 font-bold text-center mb-20 uppercase tracking-widest">
+                    Real Results for Real Businesses
                 </h2>
 
                 {/* Reviews Grid */}

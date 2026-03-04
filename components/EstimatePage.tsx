@@ -158,6 +158,7 @@ export const EstimatePage: React.FC = () => {
                     className="w-full border-b-2 border-slate-200 py-3 focus:border-brand-red outline-none transition-colors bg-transparent"
                   >
                     <option value="">Select a service</option>
+                    <option value="Residential Cleaning">Residential Cleaning</option>
                     <option value="Commercial Cleaning">Commercial Cleaning</option>
                     <option value="Post-Construction">Post-Construction</option>
                     <option value="Office Janitorial">Office Janitorial</option>

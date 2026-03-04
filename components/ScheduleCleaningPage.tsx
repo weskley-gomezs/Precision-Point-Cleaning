@@ -132,6 +132,7 @@ export const ScheduleCleaningPage = () => {
                             className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white appearance-none focus:outline-none focus:border-brand-red cursor-pointer"
                         >
                             <option value="">- Please Select -</option>
+                            <option value="Residential Cleaning">Residential Cleaning</option>
                             <option value="Deep Cleaning">Deep Cleaning</option>
                             <option value="Standard Cleaning">Standard Cleaning</option>
                             <option value="Move In/Out">Move In/Out</option>
