@@ -93,7 +93,7 @@ export const ContactsPage: React.FC = () => {
                             </div>
                             <div>
                                 <h3 className="font-bold text-slate-700 text-lg mb-1">Phone 24/7</h3>
-                                <a href="tel:6173720093" className="text-slate-500 text-[15px] hover:text-brand-red transition-colors">Serving New England (617) 372-0093</a>
+                                <a href="tel:6173720093" className="text-slate-500 text-[15px] hover:text-brand-red transition-colors">Serving All of Massachusetts (617) 372-0093</a>
                             </div>
                         </div>
 

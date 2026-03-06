@@ -43,7 +43,7 @@ export const AboutUsPage: React.FC = () => {
                     </h2>
                     <div className="text-slate-500 text-base leading-relaxed space-y-4">
                         <p>
-                            Precision Point Cleaning is a locally owned and operated cleaning company dedicated to providing exceptional service to homes and businesses across New England. What started as a small team has grown into a full-service cleaning and restoration provider, known for our attention to detail and commitment to customer satisfaction.
+                            Precision Point Cleaning is a locally owned and operated cleaning company dedicated to providing exceptional service to homes and businesses across MASSACHUETTS. What started as a small team has grown into a full-service cleaning and restoration provider, known for our attention to detail and commitment to customer satisfaction.
                         </p>
                         <p>
                             We understand that every space is unique, which is why we tailor our services to meet your specific needs. From routine janitorial work to emergency flood clean-up, our team is trained, certified, and ready to handle it all.

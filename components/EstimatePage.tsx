@@ -92,7 +92,7 @@ export const EstimatePage: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-sm text-slate-400 uppercase font-bold tracking-wider">Service Area</p>
-                    <p className="font-bold">MA & Neighboring States</p>
+                    <p className="font-bold">All of Massachusetts</p>
                   </div>
                 </div>
               </div>

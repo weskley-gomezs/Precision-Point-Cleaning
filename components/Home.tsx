@@ -351,7 +351,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 </div>
                 <div className="flex items-center p-4 bg-slate-700/50 rounded-2xl border border-slate-600">
                   <MapPin size={24} className="text-brand-red mr-5" />
-                  <span className="font-black text-lg">Serving MA & Neighboring States</span>
+                  <span className="font-black text-lg">Serving All of Massachusetts</span>
                 </div>
               </div>
             </div>
