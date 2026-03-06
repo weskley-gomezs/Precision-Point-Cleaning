@@ -7,6 +7,8 @@ interface SpecialServicesPageProps {
 
 export const SpecialServicesPage: React.FC<SpecialServicesPageProps> = ({ onNavigate }) => {
   const services = [
+    "Restaurant Kitchen Deep Cleaning",
+    "Commercial Hood & Exhaust Degreasing",
     "Window washing",
     "Painting",
     "Floor stripping and refinishing",
@@ -26,18 +28,21 @@ export const SpecialServicesPage: React.FC<SpecialServicesPageProps> = ({ onNavi
                 {/* Left Column: Image */}
                 <div className="lg:w-1/2 w-full">
                     <img 
-                        src="https://img.freepik.com/fotos-premium/um-trabalhador-homem-limpando-o-chao-com-a-imagem-da-maquina-lavadora_293953-528.jpg"
-                        alt="Special Cleaning Services Floor Buffer"
+                        src="https://i.imgur.com/0Ut4r6C.jpeg"
+                        alt="Restaurant Kitchen Deep Cleaning"
                         className="w-full h-auto object-cover rounded-sm shadow-sm max-h-[500px]"
                     />
                 </div>
 
                 {/* Right Column: Content */}
                 <div className="lg:w-1/2 w-full flex flex-col pt-2">
-                    <h2 className="text-[1.35rem] font-bold text-slate-700 mb-5">Special Services</h2>
+                    <h2 className="text-[1.35rem] font-bold text-slate-700 mb-5">Specialized Solutions</h2>
                     <div className="text-slate-500 text-[15px] leading-[1.7] space-y-4 mb-10 text-justify">
                         <p>
-                            The appearance of your commercial building can have a direct effect on your bottom line. Whether your building suffered a flood and need emergency clean-up or just want to give your building a fresh coat of paint, Precision Point Cleaning is your solution.
+                            The appearance of your commercial building can have a direct effect on your bottom line. We specialize in high-stakes environments like <strong>restaurant kitchens</strong> where deep degreasing and sanitization are critical for safety and compliance.
+                        </p>
+                        <p>
+                            Whether your building suffered a flood and needs emergency clean-up or you need a specialized kitchen deep clean to pass inspection, Precision Point Cleaning is your solution.
                         </p>
                         <p>
                             Make sure your business is inviting for customers and employees - <button onClick={() => onNavigate('estimate-form')} className="text-slate-500 underline hover:text-brand-red transition-colors cursor-pointer bg-transparent border-none p-0 inline">contact</button> us today for a FREE estimate.

@@ -42,6 +42,7 @@ const testimonials = [
 export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   const [formData, setFormData] = useState({
     name: '',
+    businessName: '',
     phone: '',
     email: '',
     service: '',
@@ -85,6 +86,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         },
         body: JSON.stringify({
           name: formData.name,
+          businessName: formData.businessName,
           phone: formData.phone,
           email: formData.email,
           serviceType: formData.service,
@@ -98,6 +100,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         
         setFormData({
           name: '',
+          businessName: '',
           phone: '',
           email: '',
           service: '',
@@ -138,10 +141,10 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 #1 Commercial Cleaning in Massachusetts
               </span>
               <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6 uppercase">
-                Stop Settling for <span className="text-brand-red">Average</span> Cleaning.
+                Expert <span className="text-brand-red">Restaurant</span> & Commercial Cleaning.
               </h1>
               <p className="text-2xl md:text-3xl text-slate-200 mb-10 font-medium leading-relaxed">
-                We deliver <span className="text-white font-bold">Inspection-Ready</span> results for Restaurants, Offices, and Gyms. Fast, reliable, and absolutely spotless.
+                We specialize in <span className="text-white font-bold">Restaurant Kitchens</span>, Offices, and Gyms. Inspection-ready results guaranteed.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
@@ -251,6 +254,11 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
+                title: "Restaurant Specialists",
+                desc: "Deep degreasing and sanitization for kitchens and dining areas. We ensure you pass every health inspection.",
+                image: "https://i.imgur.com/0Ut4r6C.jpeg"
+              },
+              {
                 title: "Post Construction",
                 desc: "Site-ready results. We remove every trace of dust and debris so you can hand over the keys with confidence.",
                 image: "https://i.imgur.com/pk55fix.jpeg"
@@ -259,11 +267,6 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                 title: "Offices & Gyms",
                 desc: "High-traffic sanitization. We keep your workspace and fitness centers healthy, organized, and professional.",
                 image: "https://i.imgur.com/ssA694n.jpeg"
-              },
-              {
-                title: "Commercial Kitchens",
-                desc: "Deep degreasing and sanitization. We ensure your kitchen meets every health code requirement.",
-                image: "https://i.imgur.com/0Ut4r6C.jpeg"
               },
               {
                 title: "Window & Exterior",
@@ -301,7 +304,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           <div className="flex flex-col lg:flex-row items-center gap-20">
             <div className="lg:w-1/2 relative">
               <img 
-                src="https://i.imgur.com/D2mtPVc.png" 
+                src="https://i.imgur.com/g0HDEkq.jpeg" 
                 alt="Professional Cleaning Crew" 
                 className="rounded-[3rem] shadow-2xl relative z-10"
               />
@@ -365,6 +368,16 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                     className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-brand-red focus:bg-white outline-none transition-all font-bold"
                   />
                   <input 
+                    type="text" 
+                    name="businessName"
+                    placeholder="Business Name" 
+                    value={formData.businessName}
+                    onChange={handleInputChange}
+                    className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-brand-red focus:bg-white outline-none transition-all font-bold"
+                  />
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <input 
                     type="tel" 
                     name="phone"
                     placeholder="Phone Number*" 
@@ -373,16 +386,16 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                     onChange={handleInputChange}
                     className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-brand-red focus:bg-white outline-none transition-all font-bold"
                   />
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Email Address*" 
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-brand-red focus:bg-white outline-none transition-all font-bold"
+                  />
                 </div>
-                <input 
-                  type="email" 
-                  name="email"
-                  placeholder="Email Address*" 
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-brand-red focus:bg-white outline-none transition-all font-bold"
-                />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <select 
                     name="service"
@@ -392,6 +405,7 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                     className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 focus:border-brand-red focus:bg-white outline-none transition-all font-bold appearance-none cursor-pointer"
                   >
                     <option value="">Type of Service*</option>
+                    <option value="Restaurant Cleaning">Restaurant Cleaning</option>
                     <option value="Residential Cleaning">Residential Cleaning</option>
                     <option value="Commercial Cleaning">Commercial Cleaning</option>
                     <option value="Post-Construction">Post-Construction</option>

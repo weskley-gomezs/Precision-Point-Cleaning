@@ -29,10 +29,10 @@ export const CustomersPage: React.FC<CustomersPageProps> = ({ onNavigate }) => {
                         <h2 className="text-[1.35rem] font-bold text-slate-700 mb-5">Valued Customers</h2>
                         <div className="text-slate-500 text-[15px] leading-[1.7] space-y-4 mb-4 text-justify">
                             <p>
-                                Our goal at Precision Point Cleaning is to always meet and exceed your expectations. We are proud to list a few of our satisfied customers and would be honored to add you as one of our clients.
+                                Our goal at Precision Point Cleaning is to always meet and exceed your expectations. We are proud to serve a wide range of clients, with a <strong>special focus on the restaurant industry</strong>, including local eateries, fine dining establishments, and commercial kitchen facilities.
                             </p>
                             <p>
-                                <button onClick={() => onNavigate('contacts')} className="text-slate-500 underline hover:text-brand-red transition-colors cursor-pointer bg-transparent border-none p-0 inline">Contact</button> us today for a FREE estimate and for more information on how we can help your business and keep it clean.
+                                We would be honored to add you as one of our satisfied clients. <button onClick={() => onNavigate('contacts')} className="text-slate-500 underline hover:text-brand-red transition-colors cursor-pointer bg-transparent border-none p-0 inline">Contact</button> us today for a FREE estimate and for more information on how we can help your business and keep it clean.
                             </p>
                         </div>
                     </div>

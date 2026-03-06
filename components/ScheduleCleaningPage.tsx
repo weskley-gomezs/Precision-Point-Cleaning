@@ -7,6 +7,7 @@ export const ScheduleCleaningPage = () => {
   const [frequency, setFrequency] = useState('One Time Service');
   const [formData, setFormData] = useState({
     name: '',
+    businessName: '',
     address: '',
     phone: '',
     email: '',
@@ -24,6 +25,7 @@ export const ScheduleCleaningPage = () => {
   const handleBookNow = () => {
     const text = `*New Cleaning Booking*%0A%0A` +
       `*Name:* ${formData.name}%0A` +
+      `*Business Name:* ${formData.businessName}%0A` +
       `*Address:* ${formData.address}%0A` +
       `*Phone:* ${formData.phone}%0A` +
       `*Email:* ${formData.email}%0A%0A` +
@@ -63,16 +65,17 @@ export const ScheduleCleaningPage = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <input type="text" name="name" value={formData.name} onChange={handleInputChange} placeholder="Your name*" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
+                        <input type="text" name="businessName" value={formData.businessName} onChange={handleInputChange} placeholder="Business Name" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
                         <input type="text" name="address" value={formData.address} onChange={handleInputChange} placeholder="Your address*" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
                         <input type="text" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="Phone number*" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
                         <input type="text" name="email" value={formData.email} onChange={handleInputChange} placeholder="E-mail*" className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white focus:outline-none focus:border-brand-red transition-colors placeholder-slate-400" />
                     </div>
                 </div>
 
-                {/* Home Information */}
+                {/* Property Information */}
                 <div className="mb-8 border-t border-gray-100 pt-6">
-                    <h3 className="text-[16px] font-bold text-slate-700 mb-1">Home Information</h3>
-                    <p className="text-[13px] text-slate-400 mb-4">Tell us about your home</p>
+                    <h3 className="text-[16px] font-bold text-slate-700 mb-1">Property Information</h3>
+                    <p className="text-[13px] text-slate-400 mb-4">Tell us about your property (Bedrooms/Bathrooms or Rooms/Areas)</p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Bedrooms Counter */}
@@ -85,7 +88,7 @@ export const ScheduleCleaningPage = () => {
                                     <Minus size={16} />
                                 </button>
                                 <div className="flex-grow text-center text-sm font-medium text-black bg-white">
-                                    {bedrooms} Bedrooms
+                                    {bedrooms} Rooms/Areas
                                 </div>
                                 <button 
                                     onClick={() => setBedrooms(bedrooms + 1)}
@@ -132,6 +135,7 @@ export const ScheduleCleaningPage = () => {
                             className="w-full border border-gray-300 rounded px-4 py-2.5 text-sm text-black bg-white appearance-none focus:outline-none focus:border-brand-red cursor-pointer"
                         >
                             <option value="">- Please Select -</option>
+                            <option value="Restaurant Cleaning">Restaurant Cleaning</option>
                             <option value="Residential Cleaning">Residential Cleaning</option>
                             <option value="Deep Cleaning">Deep Cleaning</option>
                             <option value="Standard Cleaning">Standard Cleaning</option>

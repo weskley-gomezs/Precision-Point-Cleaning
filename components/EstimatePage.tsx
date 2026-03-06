@@ -4,6 +4,7 @@ import { Phone, MapPin, Check } from 'lucide-react';
 export const EstimatePage: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
+    businessName: '',
     phone: '',
     email: '',
     service: '',
@@ -31,6 +32,7 @@ export const EstimatePage: React.FC = () => {
         },
         body: JSON.stringify({
           name: formData.name,
+          businessName: formData.businessName,
           phone: formData.phone,
           email: formData.email,
           serviceType: formData.service,
@@ -42,6 +44,7 @@ export const EstimatePage: React.FC = () => {
         setSubmitStatus('success');
         setFormData({
           name: '',
+          businessName: '',
           phone: '',
           email: '',
           service: '',
@@ -121,6 +124,18 @@ export const EstimatePage: React.FC = () => {
                     className="w-full border-b-2 border-slate-200 py-3 focus:border-brand-red outline-none transition-colors"
                   />
                 </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Business Name</label>
+                  <input 
+                    type="text" 
+                    name="businessName"
+                    placeholder="Your Company" 
+                    value={formData.businessName}
+                    onChange={handleInputChange}
+                    className="w-full border-b-2 border-slate-200 py-3 focus:border-brand-red outline-none transition-colors"
+                  />
+                </div>
                 
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-400 uppercase tracking-widest">Phone Number*</label>
@@ -158,6 +173,7 @@ export const EstimatePage: React.FC = () => {
                     className="w-full border-b-2 border-slate-200 py-3 focus:border-brand-red outline-none transition-colors bg-transparent"
                   >
                     <option value="">Select a service</option>
+                    <option value="Restaurant Cleaning">Restaurant Cleaning</option>
                     <option value="Residential Cleaning">Residential Cleaning</option>
                     <option value="Commercial Cleaning">Commercial Cleaning</option>
                     <option value="Post-Construction">Post-Construction</option>

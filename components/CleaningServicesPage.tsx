@@ -7,6 +7,7 @@ interface CleaningServicesPageProps {
 
 export const CleaningServicesPage: React.FC<CleaningServicesPageProps> = ({ onNavigate }) => {
   const services = [
+    "Restaurant & Kitchen Deep Cleaning (Health Code Specialists)",
     "Daily/Nightly, weekly, monthly Commercial Cleaning",
     "State of the art Carpet Steam Cleaning",
     "Carpet Maintenance",
@@ -31,21 +32,21 @@ export const CleaningServicesPage: React.FC<CleaningServicesPageProps> = ({ onNa
                 {/* Left Column: Image */}
                 <div className="lg:w-1/2 w-full">
                     <img 
-                        src="https://img.freepik.com/fotos-gratis/pessoas-de-tiro-medio-limpando-predio_23-2150454559.jpg?t=st=1769813994~exp=1769817594~hmac=000fb7dc31ec161b8885132f8799b6a726f51b465bcb97c298d3f8ccb3d68590"
-                        alt="Cleaning Services Team"
+                        src="https://i.imgur.com/0Ut4r6C.jpeg"
+                        alt="Restaurant Kitchen Cleaning"
                         className="w-full h-full object-cover rounded-sm shadow-sm min-h-[300px]"
                     />
                 </div>
 
                 {/* Right Column: Content */}
                 <div className="lg:w-1/2 w-full flex flex-col pt-2">
-                    <h2 className="text-[1.35rem] font-bold text-slate-700 mb-5">Cleaning Services</h2>
+                    <h2 className="text-[1.35rem] font-bold text-slate-700 mb-5">Specialized Restaurant & Commercial Cleaning</h2>
                     <div className="text-slate-500 text-[15px] leading-[1.7] space-y-4 mb-10 text-justify">
                         <p>
-                            Keep your commercial facility looking its best with regular cleaning by Precision Point Cleaning. We understand that every building has its own particular needs. We'll create a plan to best meet your cleaning needs, and you can choose from daily, weekly, monthly, or semiannual cleaning.
+                            Precision Point Cleaning is the region's leader in <strong>Restaurant and Commercial Kitchen cleaning</strong>. We understand the high stakes of health inspections and the rigorous standards required for food service environments.
                         </p>
                         <p>
-                            We have developed a program which we can track when our managers go to your facility and when our employees are at your facility.
+                            From deep degreasing of exhaust hoods and kitchen equipment to sanitizing dining areas and restrooms, we ensure your facility is inspection-ready 24/7. We also provide comprehensive cleaning for offices, gyms, and retail spaces.
                         </p>
                         <p>
                             We can accommodate any schedule and budget. <button id="cleaning-services-contact-button" onClick={() => onNavigate('estimate-form')} className="text-slate-500 underline hover:text-brand-red transition-colors cursor-pointer bg-transparent border-none p-0 inline">Contact</button> us today for a FREE estimate.
